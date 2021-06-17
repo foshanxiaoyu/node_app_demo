@@ -3,7 +3,16 @@ let path = require('path');
 let fs = require('fs');
 let MongoClient = require('mongodb').MongoClient;
 let bodyParser = require('body-parser');
+let cors = require('cors')
 let app = express();
+// Access-Control-Allow_Origin: *
+app.use(cors())
+app.all('/*', function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
+//20210617 add CORS
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -24,13 +33,13 @@ app.get('/profile-picture', function (req, res) {
 let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
 
 // use when starting application as docker container
-let mongoUrlDocker = "mongodb://admin:password@mongodb";
+let mongoUrlDocker = "mongodb://admin:password@mgdb";
 
 // pass these options to mongo client connect request to avoid DeprecationWarning for current Server Discovery and Monitoring engine
 let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 // "user-account" in demo with docker. "my-db" in demo with docker-compose
-let databaseName = "my-db";
+let databaseName = "user-account";
 
 app.post('/update-profile', function (req, res) {
     let userObj = req.body;
@@ -75,6 +84,6 @@ app.get('/get-profile', function (req, res) {
     });
 });
 
-app.listen(3000, function () {
-    console.log("app listening on port 3000!");
+app.listen(9999, function () {
+    console.log("app listening on port 9999!");
 });
