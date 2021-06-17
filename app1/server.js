@@ -12,6 +12,7 @@ app.all('/*', function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
 });
+
 //20210617 add CORS   
 
 app.use(bodyParser.urlencoded({
