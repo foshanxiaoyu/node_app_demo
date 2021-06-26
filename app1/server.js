@@ -3,15 +3,18 @@ let path = require('path');
 let fs = require('fs');
 let MongoClient = require('mongodb').MongoClient;
 let bodyParser = require('body-parser');
-let cors = require('cors')
+// let cors = require('cors')
 let app = express();
-// Access-Control-Allow_Origin: *
+// Access - Control - Allow_Origin: *
 // app.use(cors())
 // app.all(function (req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*");
 //     res.header("Access-Control-Allow-Headers", "X-Requested-With,Context-Type,Accept");
 //     next();
 // });
+app.get('/style.css', (req, res) => {
+    res.sendFile(__dirname + "/" + "style.css")
+});
 
 //20210617 add CORS   
 
