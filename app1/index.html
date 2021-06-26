@@ -70,8 +70,12 @@
             interests: document.getElementById('input-interests').value
         };
         
+<<<<<<< HEAD
         const uir = 'https://foshanxiaoyu.com/app1/update-profile'
         const response = await fetch(uir, {
+=======
+        const response = await fetch($uri+('/update-profile', {  #此处$uri+ 没验证过，是 http://a.com:8888 map https://a.com/api/ 对应关系
+>>>>>>> 0cda7a02bdbbb580f7d642518199c92354f67776
             method: "POST",
             headers: {
               'Accept': 'application/json',
