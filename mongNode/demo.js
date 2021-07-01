@@ -4,7 +4,7 @@ const { MongoClient } = require('mongodb')
 
 async function main() {
     // const uri = 'mongodb://admin:password@localhost:27017'
-    const uri = 'mongodb+srv://dev11:dev1234455@cluster-yu.ixch7.gcp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    const uri = ''
     const Optional = { useUnifiedTopology: true }
     // const Optional = { useNewUrlParser: true, useUnifiedTopology: true }
 
