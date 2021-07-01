@@ -4,7 +4,7 @@ async function main() {
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
      * See https://docs.mongodb.com/drivers/node/ for more details
      */
-    const uri = 'mongodb+srv://dev11:dev1234455@cluster-yu.ixch7.gcp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    const uri = ''
 
     /**
      * The Mongo Client you will use to interact with your database
