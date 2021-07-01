@@ -1,5 +1,10 @@
 {
-  "dependencies": {
-    "mongodb": "^3.6.9"
-  }
+    "scripts": {
+        "dev": "nodemon sev.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "mongodb": "^3.6.9",
+        "nodemon": "^2.0.9"
+    }
 }
