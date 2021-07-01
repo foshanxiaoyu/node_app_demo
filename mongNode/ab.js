@@ -10,7 +10,7 @@ function tei2(age) { //MAX_SAFE_INTEGER
 
 
 const { MongoClient } = require('mongodb')
-const uri = 'mongodb+srv://dev11:dev1234455@cluster-yu.ixch7.gcp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const uri = ''
 const client = new MongoClient(uri)
 
 
