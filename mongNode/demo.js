@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb')
 // const readMem = require('./read')
 
 async function main() {
-    // const uri = 'mongodb://admin:password@localhost:27017'
+    // const uri = 'mongodb://xxxx:xxxxxx@localhost:27017'
     const uri = ''
     const Optional = { useUnifiedTopology: true }
     // const Optional = { useNewUrlParser: true, useUnifiedTopology: true }
