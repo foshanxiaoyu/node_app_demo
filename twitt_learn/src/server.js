@@ -33,16 +33,6 @@ app.get('/loading.gif', (req, res) => {
     res.sendFile(__dirname + "/" + "client/static/images/loading.gif")
 });
 
-// app.post('/mews', (req, res) => {
-//     console.log({ fuck: 'This server response!!!' })
-//     res.send(req.body)
-
-// });
-
-// function isValidMew(mew) {
-//     return mew.name && mew.name.toString().trim() !== '' &&
-//         mew.content && mew.content.toString().trim() !== '';
-// };
 
 app.listen(port, console.log(`Server Listening on the ${port}....`))
 // app.listen(port, console.log('Server Listening on the http://localhost:15000'))
