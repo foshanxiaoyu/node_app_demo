@@ -13,8 +13,8 @@ let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
 let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 // "twitter-db" in demo with docker. "YOU-DB" in IM with docker-compose
-// let databaseName = monk("localhost/twitter-db")
-// const mews = databaseName.get('mews')
+
+
 // DB Init 
 const client = new MongoClient(mongoUrlLocal)
 // Wait for connect
