@@ -2,7 +2,7 @@ console.log("Hi start....");
 const express = require('express');
 const cors = require('cors');
 const port = process.env.PORT || 15001
-// const URL_HOST = 'http://127.0.0.1:9900' || 'https://foshanxiaoyu.com';
+// const URL_HOST = 'http://127.0.0.1:9900' || 'https://fyu.com';
 
 const app = express()
 // const form = document.querySelector('form')
