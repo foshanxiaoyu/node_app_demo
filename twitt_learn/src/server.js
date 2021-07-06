@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const port = process.env.PORT || 15000
 
-// const URL_HOST = 'http://localhost:9900/mews' || 'https://foshanxiaoyu.com/app99/mews';
+// const URL_HOST = 'http://localhost:9900/mews' || 'https://yu.com/9/xxws';
 
 
 const app = express()
