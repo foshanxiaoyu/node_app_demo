@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memower - Twitter for Cat </title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    
+</head>
+<body>
+    <header>
+        <h1 class="title">
+            Memower - Twitter for Cat
+        </h1>
+    </header>
+    <main>
+        <form class="mem-form" >
+            <label for="name">姓  名：</label>
+            <input class="u-full-width" type="text" id="name" name="name">
+            <label for="phone">电  话：</label>
+            <input class="u-full-width" type="text" id="phone" name="phone">
+            <label for="content">发  表：</label>
+            <textarea class="u-full-width" type="text" id="context" name="context"> </textarea>
+            <div class="checkboxs">
+                <h5>文章分类</h3>
+                    <label >工    作</label>
+                    <input class="category" type="checkbox" id="category" name="work">
+                    <label >学    习</label>
+                    <input class="category" type="checkbox" id="category" name="study">
+                    <label >生    活</label>
+                    <input class="category" type="checkbox" id="category" name="live">
+                </div>
+                <button class="button-primary"> 确定发表</button>
+            </form>
+            <div class="loading">
+                <img src="loading.gif" alt="" class="">
+            </div>
+            <div class="mews">
+                <button class="button-primary" id="listall"> 列出所有帖子</button>
+
+            </div>
+        </main>
+        <script src="client.js"></script>
+    </body>
+</html>
