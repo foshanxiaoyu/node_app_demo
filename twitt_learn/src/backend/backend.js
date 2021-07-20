@@ -4,7 +4,7 @@ const cors = require('cors')
 
 let MongoClient = require('mongodb').MongoClient;
 // use when starting application locally
-let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
+let mongoUrlLocal = "mongodb://USER:PASSWORD@localhost:27017";
 
 // use when starting application as docker container
 // let mongoUrlDocker = "mongodb://admin:password@mgdb";
