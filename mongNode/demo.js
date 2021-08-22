@@ -30,8 +30,8 @@ async function main() {
         //     { name: 'Lovely4 loft', summary: '4A charming loft in', bedrooms: 4, bathroom: 4 },
         // ])
 
-        // await findOneListingByName(client, {}) // Lovely4 loft  肖剑
-        // await findOneListingByName(client, 'Lovely4 loft') // Lovely4 loft  肖剑  管晓青
+        // await findOneListingByName(client, {}) // Lovely4 loft  xx
+        // await findOneListingByName(client, 'Lovely4 loft') // Lovely4 loft  xx  xx青
         // await findAllListing(client)
         // await findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews1(client, {
         await findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews2(client, {
