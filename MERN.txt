@@ -164,7 +164,6 @@ const userSchema = new Schema({
 
 
 
-module.exports = {
-model('Post', postSchema),
-model('User', userSchema)
-}
+export = model('Post', postSchema)
+export = model('User', userSchema)
+
