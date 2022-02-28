@@ -1,0 +1,170 @@
+demo.js
+==============================================================================================================
+const { ApolloServer } = require('apollo-server')
+
+
+//mongo
+const mongoose = require('mongoose')
+
+
+
+const typeDefs = require('./graphQL/typeDefs')
+const resolvers = require('./graphQL/resolvers/users')
+
+
+const server = new ApolloServer({ typeDefs, resolvers })
+
+// 200768259xy@gmail.com
+const uri = ''
+const port = process.env.PORT | 3344
+mongoose.connect(uri, { useNewUrlParser: true })
+    .then(() => {
+        server.listen(port, (req, res) => console.log(`Server running at ${port}`))
+    })
+
+===========================================================================================================================
+===========================================================================================================================
+
+
+typeDefs.js
+===========================================================================================================================
+const { gql } = require('apollo-server')
+
+
+module.exports = gql`
+type Post {
+    id:ID!
+    body:String!
+    createdAt:String!
+    username:String!
+}
+type User{
+    id:ID!
+    email:String!
+    token:String!
+    createdAt:String!
+    username:String!
+}
+input AddUserInput{
+    username:String!
+    password:String!
+    confirmPassword:String!
+    email:String!
+}
+type Query{
+    getPosts:[Post]
+    getUsers:[User]
+}
+type Mutation {
+    register(registerInput:AddUserInput):User!
+}
+`
+===========================================================================================================================
+===========================================================================================================================
+
+
+user.js
+===========================================================================================================================
+const User = require('../../models/User')
+const Post = require('../../models/Post')
+
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+
+module.exports = {
+    Query: {
+        async getUsers() {
+            try {
+                const users = await User.find()
+                return users
+            } catch (e) {
+                // throw new Error(err)
+                throw new Error(e)
+            }
+        },
+        async getPosts() {
+            try {
+                const posts = await Post.find()
+                return posts
+            } catch (e) {
+                // throw new Error(err)
+                throw new Error(e)
+            }
+        }
+    },
+
+    Mutation: {
+        async register(
+            _,
+            { registerInput: { username, email, password, confirmPassword } },
+            context,
+            info
+        ) {
+            // TODO validate user data
+            //TODO Make sure user doesnt already exist hash passowrd and create an auth token
+
+            password = await bcrypt.hash(password, 12)
+            try {
+                const newUser = new User({
+                    email,
+                    username,
+                    password,
+                    createdAt: new Date().toISOString()
+                })
+                const res = await newUser.save()
+                const token = jwt.sign({ id: res.id, email: res.email, username: res.username }, '1234567secretkey', { expiresIn: 60 })
+                // console.log(token)
+                return await { ...res._doc, id: res._id, token }
+            } catch (e) {
+                console.error(e)
+            }
+            // SECRET_KEY:'1234567secretkey'
+
+        }
+    }
+}
+===========================================================================================================================
+===========================================================================================================================
+
+
+model.js
+===========================================================================================================================
+const { model, Schema } = require('mongoose')
+
+const postSchema = new Schema({
+    username: String,
+    body: String,
+    createdAt: String,
+    Comment: [{
+        body: String,
+        username: String,
+        createdAt: String,
+    }
+    ],
+    likes: [
+        {
+            username: String,
+            createdAt: String,
+        }
+    ],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    }
+})
+
+
+const userSchema = new Schema({
+    username: String,
+    password: String,
+    email: String,
+    createdAt: String,
+})
+
+
+
+
+module.exports = {
+model('Post', postSchema),
+model('User', userSchema)
+}
